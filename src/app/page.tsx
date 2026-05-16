@@ -42,10 +42,14 @@ export default function HomePage() {
 
   return (
     <main className="dashboard">
-      <header className="hero">
+      <div className="bgOrb orbA" />
+      <div className="bgOrb orbB" />
+
+      <header className="hero card">
         <div>
           <p className="eyebrow">Pulsefolio</p>
           <h1>내 투자, 한 눈에</h1>
+          <p className="subline">시세 모니터링과 포트폴리오 상태를 단일 화면에서 확인합니다.</p>
         </div>
         <div className="statusWrap">
           <span className={`badge ${status === "LIVE" ? "live" : "closed"}`}>
@@ -55,7 +59,7 @@ export default function HomePage() {
         </div>
       </header>
 
-      <section className="statePanel">
+      <section className="statePanel card">
         <strong>데이터 상태 시뮬레이션</strong>
         <div className="stateButtons">
           {(["loading", "ready", "empty", "error", "stale"] as DataState[]).map((v) => (
@@ -71,12 +75,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {state === "loading" && <section className="card">로딩 중입니다...</section>}
+      {state === "loading" && <section className="card info">로딩 중입니다...</section>}
       {state === "error" && (
-        <section className="card">데이터를 불러오지 못했습니다. 다시 시도해주세요.</section>
+        <section className="card danger">데이터를 불러오지 못했습니다. 다시 시도해주세요.</section>
       )}
       {state === "empty" && (
-        <section className="card">데이터가 없습니다. 보유 종목을 추가해 주세요.</section>
+        <section className="card info">데이터가 없습니다. 보유 종목을 추가해 주세요.</section>
       )}
 
       {(state === "ready" || state === "stale") && (
@@ -86,21 +90,21 @@ export default function HomePage() {
           )}
 
           <section className="summaryGrid">
-            <article className="card">
+            <article className="card metricCard">
               <h2>총 평가금액</h2>
               <p className="metric">₩{summary.valuation.toLocaleString()}</p>
             </article>
-            <article className="card">
+            <article className="card metricCard">
               <h2>투자 원금</h2>
               <p className="metric">₩{summary.principal.toLocaleString()}</p>
             </article>
-            <article className="card">
+            <article className="card metricCard">
               <h2>총 손익</h2>
               <p className={`metric ${changeClass(summary.profit)}`}>
                 {sign(summary.profit)} ₩{Math.abs(summary.profit).toLocaleString()}
               </p>
             </article>
-            <article className="card">
+            <article className="card metricCard">
               <h2>총 수익률</h2>
               <p className={`metric ${changeClass(summary.rate)}`}>
                 {sign(summary.rate)} {Math.abs(summary.rate).toFixed(2)}%
@@ -108,7 +112,7 @@ export default function HomePage() {
             </article>
           </section>
 
-          <section className="card">
+          <section className="card elevated">
             <TabGroup>
               <TabList className="tabs">
                 <Tab>시장 지수</Tab>
@@ -149,7 +153,7 @@ export default function HomePage() {
             </TabGroup>
           </section>
 
-          <section className="card">
+          <section className="card elevated">
             <h2>보유 종목 Top 5</h2>
             <div className="tableWrap">
               <table>
