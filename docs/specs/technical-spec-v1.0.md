@@ -4,7 +4,7 @@
 투자 정보 조회와 포트폴리오 추적에 집중한 준실시간 웹 애플리케이션을 구현한다.
 
 ## 2. 아키텍처
-- Frontend: Next.js 16 (App Router) + TypeScript + Tailwind
+- Frontend: Next.js 16 (App Router) + TypeScript + Tailwind v4 + Headless UI
 - API Layer: Next.js Route Handlers(BFF)
 - State: React Query(서버 상태), Zustand(클라이언트 UI 상태)
 - Persistence: Supabase(PostgreSQL) 기본, 게스트 모드 LocalStorage

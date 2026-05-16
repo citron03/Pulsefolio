@@ -97,3 +97,8 @@
 - `docs/specs/technical-spec-v1.0.md`
 - `docs/specs/technical-challenges.md`
 - `docs/project/project-docs.md`
+
+
+## UI 라이브러리 기준
+- Headless UI(`@headlessui/react`)를 기본 인터랙션 컴포넌트 레이어로 사용
+- 스타일은 글로벌 디자인 토큰(`src/app/globals.css`)을 통해 일관 관리

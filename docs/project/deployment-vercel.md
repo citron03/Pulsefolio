@@ -1,15 +1,33 @@
 # Vercel 배포 가이드
 
 ## 목적
-Pulsefolio 프로젝트의 Vercel 배포 절차와 운영 시 주의사항을 기록한다.
+Pulsefolio 프로젝트의 Vercel 배포 절차와 운영 정책을 기록한다.
 
-## 현재 배포 정보 (2026-05-16)
+## 현재 배포 정보 (2026-05-17)
 - 프로젝트: `citron03s-projects/pulsefolio`
 - 프로덕션 URL: `https://pulsefolio-gilt.vercel.app`
-- 배포 URL: `https://pulsefolio-88w3gmpel-citron03s-projects.vercel.app`
+- 최근 배포 URL: `https://pulsefolio-88w3gmpel-citron03s-projects.vercel.app`
 - 인스펙트: `https://vercel.com/citron03s-projects/pulsefolio/FMiaHhLRNPKvhFDXBKA93MTaxaaz`
 
-## 배포 명령
+## 배포 정책
+
+### 1) 기본 원칙
+- 최종 목표는 **브랜치 기반 자동 배포**다.
+- `main`은 프로덕션 반영 브랜치로 사용한다.
+- 기능 개발 중에는 Preview 배포로 검증하고, `main` 반영 후 Production 배포한다.
+
+### 2) 자동 배포 정책 (권장)
+- Production Branch: `main`
+- PR 브랜치: Preview Deployment 생성
+- `main` push/merge: Production Deployment 자동 실행
+
+### 3) 수동 배포 정책 (예외)
+아래 경우에만 수동 배포를 허용한다.
+- 긴급 핫픽스
+- Vercel Git 연동 오류
+- 릴리즈 검증을 위한 임시 운영 테스트
+
+수동 배포 명령:
 ```bash
 pnpm dlx vercel --prod --yes
 ```
@@ -18,7 +36,13 @@ pnpm dlx vercel --prod --yes
 - `pnpm lint:fix`
 - `pnpm typecheck`
 - `pnpm test`
-- `pnpm build`
+- `pnpm build` (로컬 환경 제약 시 `pnpm exec next build --webpack` 대체 확인)
+
+## 운영 체크리스트
+- Vercel 프로젝트 Git 연결 상태 확인
+- Production Branch가 `main`인지 확인
+- Auto-deploy on push 활성화 확인
+- 실패 시 `vercel inspect <url>`로 원인 확인
 
 ## 이슈/해결 이력
 1. 토큰 인증 오류
@@ -31,4 +55,4 @@ pnpm dlx vercel --prod --yes
 
 ## 운영 메모
 - 로컬 `.vercel` 디렉터리는 커밋 제외(`.gitignore`)
-- 배포 실패 시 `vercel inspect <url>`로 빌드 로그 우선 확인
+- 배포 실패 로그는 `docs/project/logs/YYYY-MM-DD.md`에 요약 기록

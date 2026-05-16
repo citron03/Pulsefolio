@@ -31,7 +31,10 @@ pnpm test
 - 커스텀 스킬(보안 점검): `.codex/skills/pulsefolio-security-audit/SKILL.md`
 
 - 배포 가이드(Vercel): `docs/project/deployment-vercel.md`
+- Git/릴리즈 전략: `docs/project/git-release-strategy.md`
 - 작업 로그(2026-05-16): `docs/project/logs/2026-05-16.md`
 - 커스텀 스킬(작업 로그): `.codex/skills/pulsefolio-worklog/SKILL.md`
+- 디자인 철학: `docs/design/design-philosophy.md`
+- 디자인 세팅: `docs/design/design-setup.md`
 ## 현재 상태
 이 저장소는 개발 초기 세팅이 완료된 상태이며, 기능 구현은 다음 단계에서 진행한다.

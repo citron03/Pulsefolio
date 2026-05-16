@@ -1,5 +1,6 @@
 "use client";
 
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { useMemo, useState } from "react";
 import { getMarketStatus, statusLabel } from "@/lib/market";
 import { mockHoldings, mockIndexes, mockWatchlist } from "@/mock/dashboard";
@@ -107,40 +108,45 @@ export default function HomePage() {
             </article>
           </section>
 
-          <section className="splitGrid">
-            <article className="card">
-              <h2>시장 지수</h2>
-              <ul className="list">
-                {mockIndexes.map((idx) => (
-                  <li key={idx.label}>
-                    <span>{idx.label}</span>
-                    <span>
-                      {idx.value.toLocaleString()},
-                      <b className={changeClass(idx.changeRate)}>
-                        {sign(idx.changeRate)} {Math.abs(idx.changeRate).toFixed(2)}%
-                      </b>
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </article>
-
-            <article className="card">
-              <h2>관심 종목</h2>
-              <ul className="list">
-                {mockWatchlist.map((item) => (
-                  <li key={item.symbol}>
-                    <span>{item.name}</span>
-                    <span>
-                      ₩{item.price.toLocaleString()}:
-                      <b className={changeClass(item.changeRate)}>
-                        {sign(item.changeRate)} {Math.abs(item.changeRate).toFixed(2)}%
-                      </b>
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </article>
+          <section className="card">
+            <TabGroup>
+              <TabList className="tabs">
+                <Tab>시장 지수</Tab>
+                <Tab>관심 종목</Tab>
+              </TabList>
+              <TabPanels>
+                <TabPanel>
+                  <ul className="list">
+                    {mockIndexes.map((idx) => (
+                      <li key={idx.label}>
+                        <span>{idx.label}</span>
+                        <span>
+                          {idx.value.toLocaleString()},
+                          <b className={changeClass(idx.changeRate)}>
+                            {sign(idx.changeRate)} {Math.abs(idx.changeRate).toFixed(2)}%
+                          </b>
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </TabPanel>
+                <TabPanel>
+                  <ul className="list">
+                    {mockWatchlist.map((item) => (
+                      <li key={item.symbol}>
+                        <span>{item.name}</span>
+                        <span>
+                          ₩{item.price.toLocaleString()}:
+                          <b className={changeClass(item.changeRate)}>
+                            {sign(item.changeRate)} {Math.abs(item.changeRate).toFixed(2)}%
+                          </b>
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </TabPanel>
+              </TabPanels>
+            </TabGroup>
           </section>
 
           <section className="card">
