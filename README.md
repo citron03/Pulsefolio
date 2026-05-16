@@ -1,0 +1,16 @@
+# Pulsefolio
+
+실제 거래 없이 실제 데이터로 투자 현황을 관리하는 개인 투자자용 플랫폼.
+
+## 문서 인덱스
+- 기획서(PRD): `docs/planning/pulsefolio-prd-v1.1.md`
+- 기술 명세: `docs/specs/technical-spec-v1.0.md`
+- 기술적 챌린지: `docs/specs/technical-challenges.md`
+- 개발 도구 가이드(Biome): `docs/specs/dev-tooling-biome.md`
+- 프로젝트 운영 문서: `docs/project/project-docs.md`
+- Codex AI 세팅: `codex/CODEX_SETUP.md`
+- Agent 운영: `AGENTS.md`
+- 커스텀 스킬: `codex/skills/pulsefolio-superpowers/SKILL.md`
+
+## 현재 상태
+이 저장소는 문서 기반 초기 세팅 단계이며, 구현 코드는 다음 단계에서 추가된다.
