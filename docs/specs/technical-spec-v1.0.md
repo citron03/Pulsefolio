@@ -9,6 +9,7 @@
 - State: React Query(서버 상태), Zustand(클라이언트 UI 상태)
 - Persistence: Supabase(PostgreSQL) 기본, 게스트 모드 LocalStorage
 - Auth: NextAuth.js(OAuth), Guest fallback
+- Chart: Recharts (Mock/대시보드 시각화)
 
 ## 3. 도메인 모델
 
@@ -118,3 +119,6 @@ NEXT_PUBLIC_USE_MOCK=true면 API 대신 mock provider를 사용한다.
 - API 실패 시 사용자 메시지 표준화
 - rate limit 감지 시 exponential backoff + stale 표시
 - 시장 상태 판단: KST 09:00~15:30 + 휴장일 JSON
+
+## 참고
+- 라이브러리 선정 기준: `docs/specs/library-selection-criteria.md`

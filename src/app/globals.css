@@ -314,3 +314,33 @@ small {
     text-align: left;
   }
 }
+
+.chartGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.chartCard {
+  min-height: 280px;
+}
+
+.chartBox {
+  width: 100%;
+  height: 220px;
+}
+
+.sparkline {
+  width: 110px;
+  height: 36px;
+}
+
+@media (max-width: 900px) {
+  .chartGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sparkline {
+    width: 90px;
+  }
+}

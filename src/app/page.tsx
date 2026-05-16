@@ -2,7 +2,21 @@
 
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { useMemo, useState } from "react";
+import {
+  Area,
+  AreaChart,
+  Cell,
+  Line,
+  LineChart,
+  Pie,
+  PieChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 import { getMarketStatus, statusLabel } from "@/lib/market";
+import { mockIndexTrend, mockSparkline } from "@/mock/charts";
 import { mockHoldings, mockIndexes, mockWatchlist } from "@/mock/dashboard";
 
 type DataState = "loading" | "ready" | "empty" | "error" | "stale";
@@ -19,6 +33,8 @@ function sign(change: number): string {
   return "-";
 }
 
+const PIE_COLORS = ["#2f6ea3", "#4a89bd", "#6aa5d8", "#8ac0e8", "#b7d8f1"];
+
 export default function HomePage() {
   const [state, setState] = useState<DataState>("ready");
 
@@ -33,6 +49,11 @@ export default function HomePage() {
 
     return { principal, valuation, profit, rate };
   }, []);
+
+  const allocation = mockHoldings.map((h) => ({
+    name: h.name,
+    value: h.currentPrice * h.quantity,
+  }));
 
   const sortedHoldings = [...mockHoldings].sort(
     (a, b) =>
@@ -112,6 +133,57 @@ export default function HomePage() {
             </article>
           </section>
 
+          <section className="chartGrid">
+            <article className="card elevated chartCard">
+              <h2>자산 비중</h2>
+              <div className="chartBox">
+                <ResponsiveContainer width="100%" height="100%">
+                  <PieChart>
+                    <Pie
+                      data={allocation}
+                      dataKey="value"
+                      nameKey="name"
+                      innerRadius={56}
+                      outerRadius={86}
+                    >
+                      {allocation.map((entry, index) => (
+                        <Cell key={entry.name} fill={PIE_COLORS[index % PIE_COLORS.length]} />
+                      ))}
+                    </Pie>
+                    <Tooltip formatter={(value) => `₩${Number(value).toLocaleString()}`} />
+                  </PieChart>
+                </ResponsiveContainer>
+              </div>
+            </article>
+
+            <article className="card elevated chartCard">
+              <h2>지수 추이 (Mock)</h2>
+              <div className="chartBox">
+                <ResponsiveContainer width="100%" height="100%">
+                  <LineChart data={mockIndexTrend}>
+                    <XAxis dataKey="t" tick={{ fontSize: 11 }} />
+                    <YAxis hide />
+                    <Tooltip />
+                    <Line
+                      type="monotone"
+                      dataKey="kospi"
+                      stroke="#2f6ea3"
+                      strokeWidth={2}
+                      dot={false}
+                    />
+                    <Line
+                      type="monotone"
+                      dataKey="kosdaq"
+                      stroke="#8a4fd1"
+                      strokeWidth={2}
+                      dot={false}
+                    />
+                  </LineChart>
+                </ResponsiveContainer>
+              </div>
+            </article>
+          </section>
+
           <section className="card elevated">
             <TabGroup>
               <TabList className="tabs">
@@ -160,6 +232,7 @@ export default function HomePage() {
                 <thead>
                   <tr>
                     <th>종목명</th>
+                    <th>추이</th>
                     <th>현재가</th>
                     <th>평균단가</th>
                     <th>수익률</th>
@@ -169,10 +242,32 @@ export default function HomePage() {
                 <tbody>
                   {sortedHoldings.slice(0, 5).map((h) => {
                     const rate = ((h.currentPrice - h.avgBuyPrice) / h.avgBuyPrice) * 100;
+                    const sparkData = (
+                      mockSparkline[h.symbol as keyof typeof mockSparkline] ?? []
+                    ).map((v, i) => ({
+                      i,
+                      v,
+                    }));
+
                     return (
                       <tr key={h.symbol}>
                         <td>
                           {h.name} <small>{h.symbol}</small>
+                        </td>
+                        <td>
+                          <div className="sparkline">
+                            <ResponsiveContainer width="100%" height="100%">
+                              <AreaChart data={sparkData}>
+                                <Area
+                                  type="monotone"
+                                  dataKey="v"
+                                  stroke={rate >= 0 ? "#c62828" : "#1f5ea8"}
+                                  fill={rate >= 0 ? "rgba(198,40,40,0.16)" : "rgba(31,94,168,0.16)"}
+                                  strokeWidth={1.5}
+                                />
+                              </AreaChart>
+                            </ResponsiveContainer>
+                          </div>
                         </td>
                         <td>₩{h.currentPrice.toLocaleString()}</td>
                         <td>₩{h.avgBuyPrice.toLocaleString()}</td>

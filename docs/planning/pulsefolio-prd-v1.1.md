@@ -136,7 +136,7 @@
 - TypeScript
 - Tailwind CSS
 - Zustand + React Query
-- Recharts 또는 Lightweight Charts
+- Recharts (현재 적용) / Lightweight Charts (대안)
 - NextAuth.js
 - Supabase(PostgreSQL) 또는 Firebase
 - Vercel

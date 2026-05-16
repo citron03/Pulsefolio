@@ -23,6 +23,7 @@ pnpm test
 - 기술 명세: `docs/specs/technical-spec-v1.0.md`
 - 기술적 챌린지: `docs/specs/technical-challenges.md`
 - 개발 도구 가이드(Biome): `docs/specs/dev-tooling-biome.md`
+- 라이브러리 선정 기준: `docs/specs/library-selection-criteria.md`
 - 프로젝트 운영 문서: `docs/project/project-docs.md`
 - 의존성 업그레이드 로그(2026-05-16): `docs/project/dependency-upgrade-2026-05-16.md`
 - Codex AI 세팅: `.codex/CODEX_SETUP.md`
@@ -33,6 +34,7 @@ pnpm test
 - 배포 가이드(Vercel): `docs/project/deployment-vercel.md`
 - Git/릴리즈 전략: `docs/project/git-release-strategy.md`
 - 작업 로그(2026-05-16): `docs/project/logs/2026-05-16.md`
+- 작업 로그(2026-05-17): `docs/project/logs/2026-05-17.md`
 - 커스텀 스킬(작업 로그): `.codex/skills/pulsefolio-worklog/SKILL.md`
 - 디자인 철학: `docs/design/design-philosophy.md`
 - 디자인 세팅: `docs/design/design-setup.md`

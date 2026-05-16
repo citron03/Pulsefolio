@@ -102,3 +102,8 @@
 ## UI 라이브러리 기준
 - Headless UI(`@headlessui/react`)를 기본 인터랙션 컴포넌트 레이어로 사용
 - 스타일은 글로벌 디자인 토큰(`src/app/globals.css`)을 통해 일관 관리
+
+## 차트 라이브러리 기준
+- 기본 차트 라이브러리: `recharts`
+- 적용 범위: 자산 비중 도넛, 지수 추이 라인, 종목 스파크라인
+- 실시간 트레이딩형 캔들 고도화가 필요할 때만 Lightweight Charts 대안 검토
