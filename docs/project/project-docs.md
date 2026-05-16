@@ -31,5 +31,5 @@
 ## 참고 문서
 - PRD: `docs/planning/pulsefolio-prd-v1.1.md`
 - 기술 명세: `docs/specs/technical-spec-v1.0.md`
-- Codex 설정: `codex/CODEX_SETUP.md`
+- Codex 설정: `.codex/CODEX_SETUP.md`
 - Agent 규칙: `AGENTS.md`

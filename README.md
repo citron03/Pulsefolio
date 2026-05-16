@@ -25,10 +25,10 @@ pnpm test
 - 개발 도구 가이드(Biome): `docs/specs/dev-tooling-biome.md`
 - 프로젝트 운영 문서: `docs/project/project-docs.md`
 - 의존성 업그레이드 로그(2026-05-16): `docs/project/dependency-upgrade-2026-05-16.md`
-- Codex AI 세팅: `codex/CODEX_SETUP.md`
+- Codex AI 세팅: `.codex/CODEX_SETUP.md`
 - Agent 운영: `AGENTS.md`
-- 커스텀 스킬: `codex/skills/pulsefolio-superpowers/SKILL.md`
-- 커스텀 스킬(보안 점검): `codex/skills/pulsefolio-security-audit/SKILL.md`
+- 커스텀 스킬: `.codex/skills/pulsefolio-superpowers/SKILL.md`
+- 커스텀 스킬(보안 점검): `.codex/skills/pulsefolio-security-audit/SKILL.md`
 
 ## 현재 상태
 이 저장소는 개발 초기 세팅이 완료된 상태이며, 기능 구현은 다음 단계에서 진행한다.
