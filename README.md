@@ -28,6 +28,7 @@ pnpm test
 - Codex AI 세팅: `codex/CODEX_SETUP.md`
 - Agent 운영: `AGENTS.md`
 - 커스텀 스킬: `codex/skills/pulsefolio-superpowers/SKILL.md`
+- 커스텀 스킬(보안 점검): `codex/skills/pulsefolio-security-audit/SKILL.md`
 
 ## 현재 상태
 이 저장소는 개발 초기 세팅이 완료된 상태이며, 기능 구현은 다음 단계에서 진행한다.
