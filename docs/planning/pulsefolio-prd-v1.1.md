@@ -132,7 +132,7 @@
 - Phase 4(1~2주): 품질/성능/반응형/접근성
 
 ## 부록: 스택 제안
-- Next.js 14+ App Router
+- Next.js 16 App Router
 - TypeScript
 - Tailwind CSS
 - Zustand + React Query

@@ -24,6 +24,7 @@ pnpm test
 - 기술적 챌린지: `docs/specs/technical-challenges.md`
 - 개발 도구 가이드(Biome): `docs/specs/dev-tooling-biome.md`
 - 프로젝트 운영 문서: `docs/project/project-docs.md`
+- 의존성 업그레이드 로그(2026-05-16): `docs/project/dependency-upgrade-2026-05-16.md`
 - Codex AI 세팅: `codex/CODEX_SETUP.md`
 - Agent 운영: `AGENTS.md`
 - 커스텀 스킬: `codex/skills/pulsefolio-superpowers/SKILL.md`
