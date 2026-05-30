@@ -3,17 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "packageManager": "pnpm@10.22.0",
+  "engines": {
+    "node": ">=20.11.0"
+  },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "biome check .",
-    "lint:fix": "biome check --write .",
-    "typecheck": "tsc --noEmit",
-    "test": "vitest run",
-    "test:watch": "vitest",
+    "dev": "node scripts/task-runner.mjs dev",
+    "build": "node scripts/task-runner.mjs build",
+    "start": "node scripts/task-runner.mjs start",
+    "lint": "node scripts/task-runner.mjs lint",
+    "lint:fix": "node scripts/task-runner.mjs lint:fix",
+    "typecheck": "node scripts/task-runner.mjs typecheck",
+    "test": "node scripts/task-runner.mjs test",
+    "test:watch": "node scripts/task-runner.mjs test:watch",
     "test:ui": "vitest --ui",
-    "e2e": "playwright test",
+    "e2e": "node scripts/task-runner.mjs e2e",
+    "check": "node scripts/task-runner.mjs check",
     "prepare": "husky"
   },
   "lint-staged": {

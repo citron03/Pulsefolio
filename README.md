@@ -4,18 +4,31 @@
 
 ## Quick Start
 
+macOS/Linux:
+
 ```bash
+corepack enable
+corepack prepare pnpm@10.22.0 --activate
 pnpm install
 cp .env.example .env.local
+pnpm dev
+```
+
+Windows PowerShell:
+
+```powershell
+corepack enable
+corepack prepare pnpm@10.22.0 --activate
+pnpm install
+Copy-Item .env.example .env.local
+.\scripts\utf8.ps1
 pnpm dev
 ```
 
 개발 검증:
 
 ```bash
-pnpm lint
-pnpm typecheck
-pnpm test
+pnpm check
 ```
 
 ## 문서 인덱스
@@ -35,8 +48,11 @@ pnpm test
 - Git/릴리즈 전략: `docs/project/git-release-strategy.md`
 - 작업 로그(2026-05-16): `docs/project/logs/2026-05-16.md`
 - 작업 로그(2026-05-17): `docs/project/logs/2026-05-17.md`
+- 작업 로그(2026-05-30): `docs/project/logs/2026-05-30.md`
 - 커스텀 스킬(작업 로그): `.codex/skills/pulsefolio-worklog/SKILL.md`
 - 디자인 철학: `docs/design/design-philosophy.md`
 - 디자인 세팅: `docs/design/design-setup.md`
+- Windows/macOS 개발 환경: `docs/project/windows-macos-setup.md`
+
 ## 현재 상태
 이 저장소는 개발 초기 세팅이 완료된 상태이며, 기능 구현은 다음 단계에서 진행한다.
