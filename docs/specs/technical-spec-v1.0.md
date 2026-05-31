@@ -10,6 +10,8 @@
 - Persistence: Supabase(PostgreSQL) 기본, 게스트 모드 LocalStorage
 - Auth: NextAuth.js(OAuth), Guest fallback
 - Chart: Recharts (Mock/대시보드 시각화)
+- Mobile: 단일 Next.js 앱의 반응형 웹을 기본으로 하고, 설치형 앱 요구가 생기면 PWA를 우선 적용한다.
+- Native Shell: 앱스토어 배포 또는 네이티브 기능이 필요할 때만 Capacitor 등 래퍼를 별도 검토한다.
 
 ## 3. 도메인 모델
 
@@ -95,6 +97,8 @@
 - 리스트 100개 이상 virtualization
 - polling interval 정리(언마운트 시 clear)
 - 접근성: 색상+아이콘 이중 신호, 키보드 접근 가능
+- 모바일 품질: 375px/430px/768px viewport에서 핵심 지표와 상태 표시 검증
+- 버전 관리: PC/모바일은 같은 API와 도메인 계산 로직을 공유하고 레이아웃만 분기
 
 ## 8. 환경변수
 - NEXT_PUBLIC_USE_MOCK=true|false
@@ -122,3 +126,4 @@ NEXT_PUBLIC_USE_MOCK=true면 API 대신 mock provider를 사용한다.
 
 ## 참고
 - 라이브러리 선정 기준: `docs/specs/library-selection-criteria.md`
+- 모바일 제품/배포 계획: `docs/design/mobile-experience-plan.md`

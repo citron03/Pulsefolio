@@ -49,9 +49,11 @@ pnpm check
 - 작업 로그(2026-05-16): `docs/project/logs/2026-05-16.md`
 - 작업 로그(2026-05-17): `docs/project/logs/2026-05-17.md`
 - 작업 로그(2026-05-30): `docs/project/logs/2026-05-30.md`
+- 작업 로그(2026-05-31): `docs/project/logs/2026-05-31.md`
 - 커스텀 스킬(작업 로그): `.codex/skills/pulsefolio-worklog/SKILL.md`
 - 디자인 철학: `docs/design/design-philosophy.md`
 - 디자인 세팅: `docs/design/design-setup.md`
+- 모바일 경험 계획: `docs/design/mobile-experience-plan.md`
 - Windows/macOS 개발 환경: `docs/project/windows-macos-setup.md`
 
 ## 현재 상태
