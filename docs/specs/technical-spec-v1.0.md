@@ -6,6 +6,7 @@
 ## 2. 아키텍처
 - Frontend: Next.js 16 (App Router) + TypeScript + Tailwind v4 + Headless UI
 - API Layer: Next.js Route Handlers(BFF)
+- External API: 한국투자증권 Open API REST 우선, WebSocket은 2차 이후
 - State: React Query(서버 상태), Zustand(클라이언트 UI 상태)
 - Persistence: Supabase(PostgreSQL) 기본, 게스트 모드 LocalStorage
 - Auth: NextAuth.js(OAuth), Guest fallback
@@ -62,9 +63,11 @@
 
 ### GET /api/quotes?symbols=...
 - 응답: 종목별 현재가/등락률/거래량/거래대금
+- 현재 구현: mock 또는 KIS 현재가 조회(`inquire-price`) 기반 quote DTO 반환
 
 ### GET /api/chart?symbol=...&range=1w|1m|3m|1y
 - 응답: candle 배열
+- 현재 구현: mock 또는 KIS 일봉 조회(`inquire-daily-itemchartprice`) 기반 candle DTO 반환
 
 ### GET /api/portfolio
 ### POST /api/portfolio
@@ -102,9 +105,12 @@
 
 ## 8. 환경변수
 - NEXT_PUBLIC_USE_MOCK=true|false
+- KIS_ENV=real|virtual
 - KIS_APP_KEY
 - KIS_APP_SECRET
-- KIS_ACCOUNT_NO (선택)
+- KIS_ACCOUNT_NO (선택, 계좌번호 앞 8자리)
+- KIS_ACCOUNT_PRODUCT_CODE (선택, 기본값 01)
+- KIS_HTS_ID (선택, WebSocket/체결 통보 확장 시)
 - NEXTAUTH_URL
 - NEXTAUTH_SECRET
 - DATABASE_URL
@@ -119,6 +125,14 @@
 
 NEXT_PUBLIC_USE_MOCK=true면 API 대신 mock provider를 사용한다.
 
+로컬 확인:
+
+```bash
+pnpm dev
+curl "http://localhost:3000/api/quotes?symbols=005930,000660"
+curl "http://localhost:3000/api/chart?symbol=005930&range=1m"
+```
+
 ## 10. 에러/운영 정책
 - API 실패 시 사용자 메시지 표준화
 - rate limit 감지 시 exponential backoff + stale 표시
@@ -126,4 +140,5 @@ NEXT_PUBLIC_USE_MOCK=true면 API 대신 mock provider를 사용한다.
 
 ## 참고
 - 라이브러리 선정 기준: `docs/specs/library-selection-criteria.md`
+- 한국투자증권 Open API 통합 명세: `docs/specs/kis-openapi-integration.md`
 - 모바일 제품/배포 계획: `docs/design/mobile-experience-plan.md`

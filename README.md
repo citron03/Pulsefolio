@@ -31,9 +31,18 @@ pnpm dev
 pnpm check
 ```
 
+로컬 API 확인:
+
+```bash
+pnpm dev
+curl "http://localhost:3000/api/quotes?symbols=005930,000660"
+curl "http://localhost:3000/api/chart?symbol=005930&range=1m"
+```
+
 ## 문서 인덱스
 - 기획서(PRD): `docs/planning/pulsefolio-prd-v1.1.md`
 - 기술 명세: `docs/specs/technical-spec-v1.0.md`
+- 한국투자증권 Open API 통합 명세: `docs/specs/kis-openapi-integration.md`
 - 기술적 챌린지: `docs/specs/technical-challenges.md`
 - 개발 도구 가이드(Biome): `docs/specs/dev-tooling-biome.md`
 - 라이브러리 선정 기준: `docs/specs/library-selection-criteria.md`
@@ -50,6 +59,8 @@ pnpm check
 - 작업 로그(2026-05-17): `docs/project/logs/2026-05-17.md`
 - 작업 로그(2026-05-30): `docs/project/logs/2026-05-30.md`
 - 작업 로그(2026-05-31): `docs/project/logs/2026-05-31.md`
+- 작업 로그(2026-06-03): `docs/project/logs/2026-06-03.md`
+- 작업 로그(2026-06-19): `docs/project/logs/2026-06-19.md`
 - 커스텀 스킬(작업 로그): `.codex/skills/pulsefolio-worklog/SKILL.md`
 - 디자인 철학: `docs/design/design-philosophy.md`
 - 디자인 세팅: `docs/design/design-setup.md`
